@@ -4,9 +4,9 @@ function PickOneFactory(the_list) {
   };
 }
 
-function IntegerFactory(min, max) {
+function IntegerFactory(min, max, suffix) {
   return function() {
-    return Math.floor(Math.random() * (max - min)) + min;
+    return (Math.floor(Math.random() * (max - min)) + min) + suffix;
   };
 }
 
@@ -15,3 +15,4 @@ options = {};
 options['Team Size'] = {rule: function() { return PickOneFactory(["2P", "3P", "4P"])(); }};
 options['Zombie'] = {rule: function() { return "&#x2714;"; }};
 options['DBNO'] = {rule: function() { return "&#x2718;"; }};
+options['DBNO revive Casting Time'] = {rule: function() { return IntegerFactory(1, 20, "s")(); }};
